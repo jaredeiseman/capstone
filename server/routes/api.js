@@ -35,6 +35,12 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model('User', userSchema);
 
+router.get('/getusers', (req,res) => {
+  User.find({}, (err, users) => {
+    res.json(users);
+  });
+});
+
 router.post('/createuser', (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
     if (err) { res.status(500); res.send(err); }

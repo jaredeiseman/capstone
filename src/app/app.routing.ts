@@ -14,6 +14,8 @@ import { CreatePostComponent } from './blog/components/create-post/create-post.c
 import { FullPostComponent } from './blog/components/full-post/full-post.component';
 import { EditPostComponent } from './blog/components/edit-post/edit-post.component';
 
+//Admin Components
+import { AdminPanelComponent } from './admin/components/admin-panel/admin-panel.component';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +43,11 @@ const appRoutes: Routes = [
   {
     path: 'createuser',
     component: CreateUserComponent,
+    // canActivate: [AuthGuardService]
+  },
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
     // canActivate: [AuthGuardService]
   }
 ];
