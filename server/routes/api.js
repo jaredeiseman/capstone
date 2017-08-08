@@ -19,13 +19,16 @@ var postSchema = mongoose.Schema({
   category: String,
   contents: String,
   tags: Array,
-  draft: Boolean
+  draft: Boolean,
+  author: String
 })
 
 var Post = mongoose.model('Post', postSchema);
 
 var userSchema = mongoose.Schema({
   username: String,
+  firstName: String,
+  lastName: String,
   password: String,
   isAdmin: Boolean
 });
@@ -38,7 +41,9 @@ router.post('/createuser', (req, res) => {
     var newUser = new User({
       username: req.body.username,
       password: hash,
-      isAdmin: req.body.isAdmin
+      isAdmin: req.body.isAdmin,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
     }).save((err) => {
       if (err) { res.status(500); res.send(err); }
       res.status(200);
@@ -63,7 +68,12 @@ router.post('/login', (req, res) => {
           } else {
             permissions = 'user';
           }
-          res.send(permissions);
+          var response = {
+            permissions: permissions,
+            firstName: user[0].firstName,
+            lastName: user[0].lastName
+          };
+          res.json(response);
         } else {
           res.status(500);
           res.send('failed to validate');

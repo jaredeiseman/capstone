@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { Http } from '@angular/http';
 import { DatabaseService } from '../../services/database.service';
+import { AuthService } from '../../../authentication/services/auth.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Post } from '../../models/post.model';
@@ -21,7 +22,7 @@ export class EditPostComponent implements OnInit, AfterViewChecked {
   populated = false;
   tags: string = null;
 
-  constructor(private db: DatabaseService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private db: DatabaseService, private route: ActivatedRoute, private location: Location, private auth: AuthService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -53,7 +54,7 @@ export class EditPostComponent implements OnInit, AfterViewChecked {
     tags.forEach((tag) => {
       mutatedTags.push(tag.replace(/^\s+|\s+$/gm,''));
     });
-    var updatedPost = new Post(form.value.title, form.value.category, mutatedTags, content, draft);
+    var updatedPost = new Post(form.value.title, form.value.category, mutatedTags, content, draft, this.auth.userFullName);
     this.db.updatePost(this.post._id, updatedPost).subscribe(res => {
       console.log(res);
     });

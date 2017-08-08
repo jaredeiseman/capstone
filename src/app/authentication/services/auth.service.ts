@@ -8,6 +8,9 @@ export class AuthService {
   loggedIn: boolean = false;
   username: string = null;
   isAdmin: boolean = false;
+  userFullName: string;
+  userFirstName: string;
+  userLastName: string;
 
   constructor(private http: Http) { }
 
@@ -17,12 +20,13 @@ export class AuthService {
 
   login(username, password) {
     return this.http.post(`${this.baseURI}/login`, {username: username, password: password}).subscribe(res => {
+      var parsed = res.json();
       if (res.status === 200) {
-        if (res['_body'] === 'admin') {
-          this.setLogin(true, username);
+        if (parsed.permissions === 'admin') {
+          this.setLogin(true, username, parsed.firstName, parsed.lastName);
           return true;
         } else {
-          this.setLogin(false, username);
+          this.setLogin(false, username, parsed.firstName, parsed.lastName);
           return true;
         }
       } else {
@@ -31,7 +35,7 @@ export class AuthService {
     });
   }
 
-  setLogin(admin: boolean, username: string) {
+  setLogin(admin: boolean, username: string, firstName: string, lastName: string) {
     if (admin) {
       this.isAdmin = true;
     } else {
@@ -39,6 +43,9 @@ export class AuthService {
     }
     this.loggedIn = true;
     this.username = username;
+    this.userFirstName = firstName;
+    this.userLastName = lastName;
+    this.userFullName = `${this.userFirstName} ${this.userLastName}`;
   }
 
 }
