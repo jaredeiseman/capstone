@@ -1,0 +1,7 @@
+<div *ngIf="post">
+  <h2>{{post.title}}</h2>
+  <h4>{{post.created}}</h4>
+  <h5>{{post.category}}</h5>
+  <div [innerHTML]="post.contents"></div>
+  <p *ngFor="let tag of post.tags">{{tag}}</p>  
+</div>

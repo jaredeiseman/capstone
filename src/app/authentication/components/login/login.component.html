@@ -1,0 +1,11 @@
+<p>
+  login works!
+</p>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm); false">
+  <label for="username">Username</label>
+  <input type="text" name="username" ngModel>
+  <label for="password">Password</label>
+  <input type="password" name="password" ngModel>
+  <button type="submit" name="button">Login</button>
+</form>
+<a routerLink="/blog/create" routerLinkActive="active">create</a>

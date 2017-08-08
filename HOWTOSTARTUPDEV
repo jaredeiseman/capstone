@@ -1,0 +1,3 @@
+start up express: node server.js
+start up angular dev: ng serve
+start up mongo: mongod

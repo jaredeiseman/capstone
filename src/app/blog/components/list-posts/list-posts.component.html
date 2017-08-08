@@ -1,0 +1,12 @@
+<div *ngIf="posts">
+  <h2>Published Posts</h2>
+  <div *ngFor="let post of posts">
+    <a (click)="getFullPost(post)">{{post.title}}</a><span *ngIf="auth.isAdmin" (click)="edit(post)">Edit</span><span (click)="delete(post)" *ngIf="auth.isAdmin">Delete</span>
+  </div>
+</div>
+<div *ngIf="drafts && auth.isAdmin">
+  <h2>Drafts</h2>
+  <div *ngFor="let post of drafts">
+    <a (click)="getFullPost(post)">{{post.title}}</a><span (click)="edit(post)">Edit</span><span (click)="delete(post)">Delete</span>
+  </div>
+</div>
