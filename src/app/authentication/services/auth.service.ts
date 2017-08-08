@@ -20,11 +20,13 @@ export class AuthService {
       if (res.status === 200) {
         if (res['_body'] === 'admin') {
           this.setLogin(true, username);
+          return true;
         } else {
           this.setLogin(false, username);
+          return true;
         }
       } else {
-        console.log('wrong user or pass');
+        return false;
       }
     });
   }

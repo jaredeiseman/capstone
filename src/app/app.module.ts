@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 //custom modules
 import { BlogModule } from './blog/blog.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AdminModule } from './admin/admin.module';
 
 import { routing } from './app.routing'
 
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     BlogModule,
     AuthenticationModule,
+    AdminModule,
     routing
   ],
   providers: [],

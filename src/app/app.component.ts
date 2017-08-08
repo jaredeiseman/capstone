@@ -1,4 +1,5 @@
 import { Component, AfterViewChecked } from '@angular/core';
+import { AuthService } from './authentication/services/auth.service';
 declare var jquery:any;
 declare var $ :any;
 
@@ -8,7 +9,9 @@ declare var $ :any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewChecked {
-  title = 'app works!';
+  title = 'JaredEiseman.com';
+
+  constructor(public auth: AuthService) {}
 
   ngAfterViewChecked() {
 
