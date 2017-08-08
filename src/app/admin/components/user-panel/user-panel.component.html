@@ -15,9 +15,34 @@
           <td>{{user.username}}</td>
           <td>{{user.firstName}}</td>
           <td>{{user.lastName}}</td>
-          <td>Controls</td>
+          <td><span (click)="edit(user)">Edit</span><span (click)="delete(user)">Delete</span></td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="edit-user-container" *ngIf="editing">
+    <form #editUserForm="ngForm" (ngSubmit)="finishedEditing(editUserForm); false">
+      <label for="username">Username</label>
+      <input type="text" name="username" [(ngModel)]="userBeingEdited.username">
+
+      <label for="password">New Password</label>
+      <input type="password" name="password" ngModel>
+
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstname" [(ngModel)]="userBeingEdited.firstName">
+
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" [(ngModel)]="userBeingEdited.lastName">
+
+      <select name="isAdmin" ngModel>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+
+      <input type="hidden" name="id" [(ngModel)]="userBeingEdited['_id']">
+
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </section>

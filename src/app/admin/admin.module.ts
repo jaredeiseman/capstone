@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AdminService } from './services/admin.service';
 
@@ -13,7 +14,8 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
   imports: [
     CommonModule,
     RouterModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent],
   exports: [AdminNavComponent],

@@ -12,4 +12,11 @@ export class AdminService {
     return this.http.get(`${this.baseURI}/api/getusers`);
   }
 
+  updateUser(user) {
+    return this.http.post(`${this.baseURI}/api/updateuser`, user);
+  }
+
+  deleteUser(user) {
+    return this.http.post(`${this.baseURI}/api/deleteuser`, user);
+  }
 }

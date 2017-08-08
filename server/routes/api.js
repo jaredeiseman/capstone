@@ -35,6 +35,34 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model('User', userSchema);
 
+router.post('/updateuser', (req, res) => {
+  var toUpdate = req.body;
+  if (toUpdate.password) {
+    toUpdate.password = bcrypt.hashSync(toUpdate.password, saltRounds);
+  }
+  User.update({_id: toUpdate.id}, toUpdate, (err, data) => {
+    if (err) { res.status(500); res.send(err); }
+    res.status(200);
+    res.send('success');
+  });
+});
+
+router.post('/deleteuser', (req, res) => {
+  console.log(req.body);
+  User.find({_id: req.body['_id']}).remove(() => {
+    res.status(200);
+    res.send('done');
+  });
+
+
+
+
+  // Post.find({_id: req.params.id}).remove(() => {
+  //   res.status(200);
+  //   res.send('done');
+  // });
+});
+
 router.get('/getusers', (req,res) => {
   User.find({}, (err, users) => {
     res.json(users);
