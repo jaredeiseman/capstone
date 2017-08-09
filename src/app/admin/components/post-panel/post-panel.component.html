@@ -1,0 +1,23 @@
+<p>
+  post-panel works!
+</p>
+<section id="post-panel">
+  <div class="panel-container">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Posted Date</th>
+        <th>Author</th>
+        <th>Controls</th>
+      </thead>
+      <tbody *ngIf="posts">
+        <tr *ngFor="let post of posts">
+          <td><span (click)="getFullPost(post)">{{post.title}}</span></td>
+          <td>{{post.created}}</td>
+          <td>{{post.author}}</td>
+          <td><span (click)="edit(post)">Edit</span><span (click)="delete(post)">Delete</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
