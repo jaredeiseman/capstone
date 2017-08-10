@@ -1,4 +1,4 @@
-* {
+body {
   font-family: $default-font-stack;
   font-size: $bfs;
   letter-spacing: $default-letter-spacing;
@@ -7,7 +7,7 @@
 
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: $heading-letter-spacing;
-  font-family: $heading-font-stack;
+  font-family: $heading-font-stack !important;
   margin-bottom: $vertical-rhythm;
   margin-top: $vertical-rhythm / 2;
 }
