@@ -1,5 +1,28 @@
 <app-admin-nav *ngIf="auth.isAdmin"></app-admin-nav>
-<div class="main-container">
-  <h1>{{title}}</h1>
-  <router-outlet></router-outlet>
+<div class="outer-container">
+  <header>
+    <div class="branding">
+      <h1><a routerLink="/">{{title}}</a></h1>
+    </div>
+    <nav>
+      <ul>
+        <li>About</li>
+        <li>Work</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+  </header>
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <nav>
+      <ul>
+        <li>About</li>
+        <li>Work</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <span>&copy; 2017, Jared Eiseman</span>
+  </footer>
 </div>
