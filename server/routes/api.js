@@ -35,6 +35,42 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model('User', userSchema);
 
+var pagesSchema = mongoose.Schema({
+  title: String,
+  contents: String
+});
+
+var Pages = mongoose.model('Pages', pagesSchema);
+
+router.get('/listpages', (req,res) => {
+  Pages.find({}, (err, pages) => {
+    if (pages.length === 0) {
+      new Pages({
+        title: 'about',
+        contents: 'contents'
+      }).save((err) => {
+        if (err) { res.status(500); res.send(err); }
+      });
+      new Pages({
+        title: 'work',
+        contents: 'contents'
+      }).save((err) => {
+        if (err) { res.status(500); res.send(err); }
+      });
+      new Pages({
+        title: 'contact',
+        contents: 'contents'
+      }).save((err) => {
+        if (err) { res.status(500); res.send(err); }
+      });
+    }
+    res.status(200);
+    res.json(pages);
+  });
+
+  // res.send('done');
+});
+
 router.post('/updateuser', (req, res) => {
   var toUpdate = req.body;
   if (toUpdate.password) {
@@ -53,14 +89,6 @@ router.post('/deleteuser', (req, res) => {
     res.status(200);
     res.send('done');
   });
-
-
-
-
-  // Post.find({_id: req.params.id}).remove(() => {
-  //   res.status(200);
-  //   res.send('done');
-  // });
 });
 
 router.get('/getusers', (req,res) => {

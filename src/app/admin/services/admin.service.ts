@@ -19,4 +19,8 @@ export class AdminService {
   deleteUser(user) {
     return this.http.post(`${this.baseURI}/api/deleteuser`, user);
   }
+
+  getPages() {
+    return this.http.get(`${this.baseURI}/api/listpages`);
+  }
 }
