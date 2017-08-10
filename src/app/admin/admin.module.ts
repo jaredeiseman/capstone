@@ -10,6 +10,7 @@ import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { PostPanelComponent } from './components/post-panel/post-panel.component';
+import { PagePanelComponent } from './components/page-panel/page-panel.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { PostPanelComponent } from './components/post-panel/post-panel.component
     HttpModule,
     FormsModule
   ],
-  declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent, PostPanelComponent],
+  declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent, PostPanelComponent, PagePanelComponent],
   exports: [AdminNavComponent],
   providers: [AdminService]
 })

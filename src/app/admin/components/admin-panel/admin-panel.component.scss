@@ -1,0 +1,21 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  border-bottom: 1px solid black;
+
+  span {
+    display: inline-block;
+    height: 100%;
+    flex-grow: 1;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+
+  .active {
+    color: white;
+    background: black;
+  }
+}

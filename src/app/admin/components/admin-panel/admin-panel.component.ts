@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
+  activePanel: string = 'users';
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  switchPanel(panel: string) {
+    this.activePanel = panel;
+  }
+
+  determineActivePanel(panel: string) {
+    if (this.activePanel === panel) {
+      return 'active';
+    } else {
+      return '';
+    }
+  }
 }
