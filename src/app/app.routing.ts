@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   {
     path: 'blog/create',
     component: CreatePostComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'blog/post/:id',
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
   {
     path: 'blog/edit/:id',
     component: EditPostComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'login',
@@ -43,12 +43,12 @@ const appRoutes: Routes = [
   {
     path: 'createuser',
     component: CreateUserComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'admin',
     component: AdminPanelComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   }
 ];
 

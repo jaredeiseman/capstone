@@ -46,6 +46,40 @@ export class AuthService {
     this.userFirstName = firstName;
     this.userLastName = lastName;
     this.userFullName = `${this.userFirstName} ${this.userLastName}`;
+
+    var toStorage = JSON.stringify({
+      loggedIn: this.loggedIn,
+      username: this.username,
+      userFirstName: this.userFirstName,
+      userLastName: this.userLastName,
+      userFullName: this.userFullName,
+      isAdmin: this.isAdmin,
+      timestamp: Date.now()
+    });
+
+    localStorage.setItem('user', toStorage);
+  }
+
+  setLoginOnInit() {
+    if (localStorage['user']) {
+      var sessionData = JSON.parse(localStorage['user']);
+      if ((Date.now() - sessionData.timestamp) > (1000*60*60*24*7)) { // 7 days
+        localStorage.clear();
+        return;
+      } else if (!this.loggedIn) {
+        this.setLogin(sessionData.isAdmin, sessionData.username, sessionData.userFirstName, sessionData.userLastName);
+      }
+    }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.loggedIn = false;
+    this.username = null;
+    this.isAdmin = false;
+    this.userFullName = null;
+    this.userFirstName = null;
+    this.userLastName = null;
   }
 
 }

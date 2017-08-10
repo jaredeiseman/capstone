@@ -1,4 +1,4 @@
-<app-admin-nav *ngIf="auth.isAdmin"></app-admin-nav>
+<!-- <app-admin-nav *ngIf="auth.isAdmin"></app-admin-nav> -->
 <div class="outer-container">
   <header>
     <div class="branding">
@@ -6,9 +6,13 @@
     </div>
     <nav>
       <ul>
+        <li><a routerLink="/blog">Blog</a></li>
         <li>About</li>
         <li>Work</li>
         <li>Contact</li>
+        <li *ngIf="auth.loggedIn"><a (click)="logout()">Logout</a></li>
+        <li *ngIf="!auth.loggedIn"><a routerLink="/login">Login</a></li>
+        <li *ngIf="auth.isAdmin"><a routerLink="/admin">Admin Panel</a></li>
       </ul>
     </nav>
   </header>
@@ -18,9 +22,13 @@
   <footer>
     <nav>
       <ul>
+        <li><a routerLink="/blog">Blog</a></li>
         <li>About</li>
         <li>Work</li>
         <li>Contact</li>
+        <li *ngIf="auth.loggedIn"><a (click)="logout()">Logout</a></li>
+        <li *ngIf="!auth.loggedIn"><a routerLink="/login">Login</a></li>
+        <li *ngIf="auth.isAdmin"><a routerLink="/admin">Admin Panel</a></li>
       </ul>
     </nav>
     <span>&copy; 2017, Jared Eiseman</span>
