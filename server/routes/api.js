@@ -15,7 +15,10 @@ db.once('open', function() {
 //Setup schema
 var postSchema = mongoose.Schema({
   created: String,
-  title: String,
+  title: {
+    type: String,
+    unique: true
+  },
   category: String,
   contents: String,
   tags: Array,
@@ -26,7 +29,10 @@ var postSchema = mongoose.Schema({
 var Post = mongoose.model('Post', postSchema);
 
 var userSchema = mongoose.Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true
+  },
   firstName: String,
   lastName: String,
   password: String,
@@ -36,11 +42,25 @@ var userSchema = mongoose.Schema({
 var User = mongoose.model('User', userSchema);
 
 var pagesSchema = mongoose.Schema({
-  title: String,
+  title: {
+    type: String,
+    unique: true
+  },
   contents: String
 });
 
 var Pages = mongoose.model('Pages', pagesSchema);
+
+router.get('/page/:title', (req,res) => {
+  Pages.find({title: req.params.title}, (err, page) => {
+    if (err) { res.send(err); return; }
+    if (page.length !== 0) {
+      res.json(page);
+    } else {
+      res.send('page not found');
+    }
+  })
+});
 
 router.get('/listpages', (req,res) => {
   Pages.find({}, (err, pages) => {
@@ -99,7 +119,7 @@ router.get('/getusers', (req,res) => {
 
 router.post('/createuser', (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-    if (err) { res.status(500); res.send(err); }
+    if (err) { res.send(err); return; }
     var newUser = new User({
       username: req.body.username,
       password: hash,
@@ -107,7 +127,7 @@ router.post('/createuser', (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName
     }).save((err) => {
-      if (err) { res.status(500); res.send(err); }
+      if (err) { res.send(err); return; }
       res.status(200);
       res.send('done');
     });
