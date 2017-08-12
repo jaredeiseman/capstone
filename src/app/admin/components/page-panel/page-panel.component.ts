@@ -13,6 +13,10 @@ export class PagePanelComponent implements OnInit {
   constructor(private svc: AdminService, private router: Router) { }
 
   ngOnInit() {
+    this.getPages();
+  }
+
+  getPages() {
     this.svc.getPages().subscribe(res => {
       this.pages = res.json();
     });
@@ -20,6 +24,14 @@ export class PagePanelComponent implements OnInit {
 
   edit(page) {
     this.router.navigate([`/page/edit/${page._id}`]);
+  }
+
+  delete(page) {
+    if (confirm('Are you sure you want to delete this page?')) {
+      this.svc.deletePage(page).subscribe(res => {
+        if (res.status === 200) { this.getPages(); }
+      })
+    }
   }
 
 }

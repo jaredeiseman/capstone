@@ -27,4 +27,8 @@ export class AdminService {
   createPage(page) {
     return this.http.post(`${this.baseURI}/api/createpage`, page);
   }
+
+  deletePage(page) {
+    return this.http.post(`${this.baseURI}/api/deletepage`, page);
+  }
 }

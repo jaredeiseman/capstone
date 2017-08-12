@@ -52,10 +52,15 @@ var pagesSchema = mongoose.Schema({
 
 var Pages = mongoose.model('Pages', pagesSchema);
 
+router.post('/deletepage', (req, res) => {
+  Pages.find({_id: req.body['_id']}).remove(() => {
+    res.send('done');
+  });
+});
+
 router.post('/page/update', (req,res) => {
   Pages.update({_id: req.body._id}, req.body, (err, data) => {
     if (err) { res.send(err); }
-    // res.status(200);
     res.send('success');
   });
 });
@@ -134,7 +139,6 @@ router.post('/updateuser', (req, res) => {
 });
 
 router.post('/deleteuser', (req, res) => {
-  console.log(req.body);
   User.find({_id: req.body['_id']}).remove(() => {
     res.status(200);
     res.send('done');
