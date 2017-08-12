@@ -51,6 +51,16 @@ var pagesSchema = mongoose.Schema({
 
 var Pages = mongoose.model('Pages', pagesSchema);
 
+router.post('/createpage', (req,res) => {
+  new Pages({
+    title: req.body.title,
+    contents: req.body.contents
+  }).save((err) => {
+    if (err) { res.status(500); res.send(err); }
+    res.send('done');
+  });
+});
+
 router.get('/page/:title', (req,res) => {
   Pages.find({title: req.params.title}, (err, page) => {
     if (err) { res.send(err); return; }

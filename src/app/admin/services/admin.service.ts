@@ -23,4 +23,8 @@ export class AdminService {
   getPages() {
     return this.http.get(`${this.baseURI}/api/listpages`);
   }
+
+  createPage(page) {
+    return this.http.post(`${this.baseURI}/api/createpage`, page);
+  }
 }

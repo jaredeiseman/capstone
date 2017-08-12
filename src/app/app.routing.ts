@@ -21,6 +21,7 @@ import { AdminPanelComponent } from './admin/components/admin-panel/admin-panel.
 import { AboutComponent } from './pages/components/about/about.component';
 import { WorkComponent } from './pages/components/work/work.component';
 import { ContactComponent } from './pages/components/contact/contact.component';
+import { CustomPageComponent } from './pages/components/custom-page/custom-page.component';
 
 const appRoutes: Routes = [
   {
@@ -66,6 +67,10 @@ const appRoutes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'page/:title',
+    component: CustomPageComponent
   }
 ];
 
