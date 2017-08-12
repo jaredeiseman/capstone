@@ -19,6 +19,7 @@ import { AdminPanelComponent } from './admin/components/admin-panel/admin-panel.
 
 //Pages Components
 import { CustomPageComponent } from './pages/components/custom-page/custom-page.component';
+import { EditPageComponent } from './pages/components/edit-page/edit-page.component';
 
 const appRoutes: Routes = [
   {
@@ -56,6 +57,11 @@ const appRoutes: Routes = [
   {
     path: 'page/:title',
     component: CustomPageComponent
+  },
+  {
+    path: 'page/edit/:id',
+    component: EditPageComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 

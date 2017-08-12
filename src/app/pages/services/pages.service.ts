@@ -12,4 +12,12 @@ export class PagesService {
     return this.http.get(`${this.baseURI}/page/${page}`);
   }
 
+  getPageById(id: string) {
+    return this.http.get(`${this.baseURI}/page/edit/${id}`);
+  }
+
+  updatePage(toUpdate) {
+    return this.http.post(`${this.baseURI}/page/update`, toUpdate);
+  }
+
 }

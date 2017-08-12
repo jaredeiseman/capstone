@@ -52,6 +52,21 @@ var pagesSchema = mongoose.Schema({
 
 var Pages = mongoose.model('Pages', pagesSchema);
 
+router.post('/page/update', (req,res) => {
+  Pages.update({_id: req.body._id}, req.body, (err, data) => {
+    if (err) { res.send(err); }
+    // res.status(200);
+    res.send('success');
+  });
+});
+
+router.get('/page/edit/:id', (req,res) => {
+  Pages.find({_id: req.params.id}, (err, page) => {
+    if (err) { res.send(err); return; }
+    res.json(page);
+  });
+});
+
 router.post('/createpage', (req,res) => {
   new Pages({
     title: req.body.title,
