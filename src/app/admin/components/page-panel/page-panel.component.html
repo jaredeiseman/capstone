@@ -1,5 +1,20 @@
-<p>
-  page-panel works!
-</p>
-<p *ngFor="let page of pages">{{page.title}}</p>
-<app-create-page-form></app-create-page-form>
+<section id="page-panel">
+  <div class="panel-container">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Route</th>
+        <th>Controls</th>
+      </thead>
+      <tbody *ngIf="pages">
+        <tr *ngFor="let page of pages">
+          <td><a routerLink="/page/{{page.route}}">{{page.title}}</a></td>
+          <td><span>{{page.route}}</span></td>
+          <td class="controls"><span (click)="edit(page)">Edit</span><span (click)="delete(page)">Delete</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<app-create-page-form *ngIf="editing"></app-create-page-form>

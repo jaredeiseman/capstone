@@ -42,7 +42,8 @@ var userSchema = mongoose.Schema({
 var User = mongoose.model('User', userSchema);
 
 var pagesSchema = mongoose.Schema({
-  title: {
+  title: String,
+  route: {
     type: String,
     unique: true
   },
@@ -54,7 +55,8 @@ var Pages = mongoose.model('Pages', pagesSchema);
 router.post('/createpage', (req,res) => {
   new Pages({
     title: req.body.title,
-    contents: req.body.contents
+    contents: req.body.contents,
+    route: req.body.route
   }).save((err) => {
     if (err) { res.status(500); res.send(err); }
     res.send('done');
@@ -77,19 +79,22 @@ router.get('/listpages', (req,res) => {
     if (pages.length === 0) {
       new Pages({
         title: 'about',
-        contents: 'contents'
+        contents: 'contents',
+        route: 'about'
       }).save((err) => {
         if (err) { res.status(500); res.send(err); }
       });
       new Pages({
         title: 'work',
-        contents: 'contents'
+        contents: 'contents',
+        route: 'work'
       }).save((err) => {
         if (err) { res.status(500); res.send(err); }
       });
       new Pages({
         title: 'contact',
-        contents: 'contents'
+        contents: 'contents',
+        route: 'work'
       }).save((err) => {
         if (err) { res.status(500); res.send(err); }
       });

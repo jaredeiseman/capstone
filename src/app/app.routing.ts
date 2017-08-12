@@ -18,9 +18,6 @@ import { EditPostComponent } from './blog/components/edit-post/edit-post.compone
 import { AdminPanelComponent } from './admin/components/admin-panel/admin-panel.component';
 
 //Pages Components
-import { AboutComponent } from './pages/components/about/about.component';
-import { WorkComponent } from './pages/components/work/work.component';
-import { ContactComponent } from './pages/components/contact/contact.component';
 import { CustomPageComponent } from './pages/components/custom-page/custom-page.component';
 
 const appRoutes: Routes = [
@@ -55,18 +52,6 @@ const appRoutes: Routes = [
     path: 'admin',
     component: AdminPanelComponent,
     canActivate: [AuthGuardService]
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: 'work',
-    component: WorkComponent
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
   },
   {
     path: 'page/:title',

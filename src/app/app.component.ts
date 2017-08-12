@@ -26,4 +26,9 @@ export class AppComponent implements AfterViewChecked, OnInit {
     this.auth.logout();
     this.router.navigate(['/']);
   }
+
+  route(route: string) {
+    console.log('hi');
+    this.router.navigate([route]);
+  }
 }

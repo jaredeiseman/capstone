@@ -1,22 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { PagesService } from '../../services/pages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-page',
   templateUrl: './custom-page.component.html',
   styleUrls: ['./custom-page.component.scss']
 })
-export class CustomPageComponent implements OnInit {
+export class CustomPageComponent implements OnInit, AfterViewChecked {
 
   page: string;
   contents: string;
   title: string;
 
-  constructor(private route: ActivatedRoute, private location: Location, private svc: PagesService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private svc: PagesService, private router: Router) {
+    router.events.subscribe((val) => {
+        this.populateInfo();
+    });
+  }
 
   ngOnInit() {
+    this.populateInfo();
+  }
+
+  ngAfterViewChecked() {
+    // this.populateInfo();
+  }
+
+  populateInfo() {
     this.route.params.forEach((urlParameters) => {
       this.page = urlParameters['title'];
     });

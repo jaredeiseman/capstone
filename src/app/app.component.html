@@ -7,9 +7,9 @@
     <nav>
       <ul>
         <li><a routerLink="/blog">Blog</a></li>
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/work">Work</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/page/about">About</a></li>
+        <li><a routerLink="/page/work">Work</a></li>
+        <li><a routerLink="/page/contact">Contact</a></li>
         <li *ngIf="auth.loggedIn"><a (click)="logout()">Logout</a></li>
         <li *ngIf="!auth.loggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="auth.isAdmin"><a routerLink="/admin">Admin Panel</a></li>
@@ -23,9 +23,9 @@
     <nav>
       <ul>
         <li><a routerLink="/blog">Blog</a></li>
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/work">Work</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/page/about">About</a></li>
+        <li><a routerLink="/page/work">Work</a></li>
+        <li><a routerLink="/page/contact">Contact</a></li>
         <li *ngIf="auth.loggedIn"><a (click)="logout()">Logout</a></li>
         <li *ngIf="!auth.loggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="auth.isAdmin"><a routerLink="/admin">Admin Panel</a></li>
