@@ -20,8 +20,13 @@ import { AdminPanelComponent } from './admin/components/admin-panel/admin-panel.
 //Pages Components
 import { CustomPageComponent } from './pages/components/custom-page/custom-page.component';
 import { EditPageComponent } from './pages/components/edit-page/edit-page.component';
+import { WelcomeComponent } from './pages/components/welcome/welcome.component';
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    component: WelcomeComponent
+  },
   {
     path: 'blog',
     component: ListPostsComponent

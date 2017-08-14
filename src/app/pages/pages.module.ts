@@ -7,6 +7,7 @@ import { CustomPageComponent } from './components/custom-page/custom-page.compon
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FormsModule } from '@angular/forms';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     FroalaViewModule.forRoot(),
     FormsModule
   ],
-  declarations: [CustomPageComponent, EditPageComponent],
+  declarations: [CustomPageComponent, EditPageComponent, WelcomeComponent],
   providers: [PagesService]
 })
 export class PagesModule { }

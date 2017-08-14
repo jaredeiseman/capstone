@@ -83,8 +83,8 @@ router.post('/createpage', (req,res) => {
   });
 });
 
-router.get('/page/:title', (req,res) => {
-  Pages.find({title: req.params.title}, (err, page) => {
+router.get('/page/:route', (req,res) => {
+  Pages.find({route: req.params.route}, (err, page) => {
     if (err) { res.send(err); return; }
     if (page.length !== 0) {
       res.json(page);
@@ -96,30 +96,37 @@ router.get('/page/:title', (req,res) => {
 
 router.get('/listpages', (req,res) => {
   Pages.find({}, (err, pages) => {
-    if (pages.length === 0) {
-      new Pages({
-        title: 'about',
-        contents: 'contents',
-        route: 'about'
-      }).save((err) => {
-        if (err) { res.status(500); res.send(err); }
-      });
-      new Pages({
-        title: 'work',
-        contents: 'contents',
-        route: 'work'
-      }).save((err) => {
-        if (err) { res.status(500); res.send(err); }
-      });
-      new Pages({
-        title: 'contact',
-        contents: 'contents',
-        route: 'work'
-      }).save((err) => {
-        if (err) { res.status(500); res.send(err); }
-      });
-    }
-    res.status(200);
+    // if (pages.length === 0) {
+    //   new Pages({
+    //     title: 'Welcome',
+    //     contents: 'welcome component',
+    //     route: '/'
+    //   }).save((err) => {
+    //     // if (err) { res.send(err); }
+    //   });
+    //   new Pages({
+    //     title: 'about',
+    //     contents: 'contents',
+    //     route: 'about'
+    //   }).save((err) => {
+    //     // if (err) { res.send(err); }
+    //   });
+    //   new Pages({
+    //     title: 'work',
+    //     contents: 'contents',
+    //     route: 'work'
+    //   }).save((err) => {
+    //     // if (err) { res.send(err); }
+    //   });
+    //   new Pages({
+    //     title: 'contact',
+    //     contents: 'contents',
+    //     route: 'work'
+    //   }).save((err) => {
+    //     // if (err) { res.send(err); }
+    //   });
+    // }
+    // res.status(200);
     res.json(pages);
   });
 
