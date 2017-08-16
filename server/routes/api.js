@@ -47,7 +47,12 @@ var pagesSchema = mongoose.Schema({
     type: String,
     unique: true
   },
-  contents: String
+  contents: String,
+  displayName: {
+    type: String,
+    unique: true
+  },
+  displayInNav: Boolean
 });
 
 var Pages = mongoose.model('Pages', pagesSchema);
@@ -76,7 +81,9 @@ router.post('/createpage', (req,res) => {
   new Pages({
     title: req.body.title,
     contents: req.body.contents,
-    route: req.body.route
+    route: req.body.route,
+    displayName: req.body.displayName,
+    displayInNav: req.body.displayInNav
   }).save((err) => {
     if (err) { res.status(500); res.send(err); }
     res.send('done');

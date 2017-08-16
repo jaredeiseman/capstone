@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 //custom modules
 import { BlogModule } from './blog/blog.module';
@@ -13,10 +14,12 @@ import { PagesModule } from './pages/pages.module';
 import { routing } from './app.routing'
 
 import { AppComponent } from './app.component';
+import { NavbarPipe } from './pipes/navbar.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarPipe
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { AppComponent } from './app.component';
     PagesModule,
     AuthenticationModule,
     AdminModule,
+    RouterModule,
     routing
   ],
   providers: [],

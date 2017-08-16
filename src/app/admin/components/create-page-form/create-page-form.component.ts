@@ -15,6 +15,7 @@ export class CreatePageFormComponent implements OnInit {
   }
 
   createPage(form: NgForm) {
+    form.value.displayInNav = (form.value.displayInNav === "true");
     this.svc.createPage(form.value).subscribe(res => {
       console.log(res);
     });

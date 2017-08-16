@@ -4,12 +4,14 @@
       <thead>
         <th>Title</th>
         <th>Route</th>
+        <th>Display In Navbar</th>
         <th>Controls</th>
       </thead>
       <tbody *ngIf="pages">
         <tr *ngFor="let page of pages">
           <td><a routerLink="/page/{{page.route}}">{{page.title}}</a></td>
           <td><span>{{page.route}}</span></td>
+          <td><span *ngIf="page.displayInNav">True</span><span *ngIf="!page.displayInNav">False</span></td>
           <td class="controls"><span (click)="edit(page)">Edit</span><span (click)="delete(page)">Delete</span></td>
         </tr>
       </tbody>

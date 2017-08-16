@@ -1,6 +1,8 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './authentication/services/auth.service';
+import { AdminService } from './admin/services/admin.service';
+import { NavbarPipe } from './pipes/navbar.pipe';
 declare var jquery:any;
 declare var $ :any;
 
@@ -11,8 +13,9 @@ declare var $ :any;
 })
 export class AppComponent implements AfterViewChecked, OnInit {
   title = 'JaredEiseman.com';
+  pagesList: any = null;
 
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(public auth: AuthService, private router: Router, private admin: AdminService) {}
 
   ngAfterViewChecked() {
 
@@ -20,6 +23,10 @@ export class AppComponent implements AfterViewChecked, OnInit {
 
   ngOnInit() {
     this.auth.setLoginOnInit();
+    this.admin.getPages().subscribe(res => {
+      this.pagesList = res.json();
+      console.log(this.pagesList);
+    });
   }
 
   logout() {

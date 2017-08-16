@@ -43,7 +43,9 @@ export class EditPageComponent implements OnInit {
       _id: this.page._id,
       title: title,
       route: route,
-      contents: content
+      contents: content,
+      displayName: form.value.displayName,
+      displayInNav: form.value.displayInNav
     }
 
     this.svc.updatePage(toUpdate).subscribe(res => {

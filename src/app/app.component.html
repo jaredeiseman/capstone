@@ -5,11 +5,8 @@
       <h1><a routerLink="/">{{title}}</a></h1>
     </div>
     <nav>
-      <ul>
-        <li><a routerLink="/blog">Blog</a></li>
-        <li><a routerLink="/page/about">About</a></li>
-        <li><a routerLink="/page/work">Work</a></li>
-        <li><a routerLink="/page/contact">Contact</a></li>
+      <ul *ngIf="pagesList">
+        <li *ngFor="let page of pagesList | navbar"><a routerLink="/page/{{page.route}}">{{page.displayName}}</a></li>
         <li *ngIf="auth.loggedIn"><a (click)="logout()">Logout</a></li>
         <li *ngIf="!auth.loggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="auth.isAdmin"><a routerLink="/admin">Admin Panel</a></li>
@@ -21,11 +18,8 @@
   </div>
   <footer>
     <nav>
-      <ul>
-        <li><a routerLink="/blog">Blog</a></li>
-        <li><a routerLink="/page/about">About</a></li>
-        <li><a routerLink="/page/work">Work</a></li>
-        <li><a routerLink="/page/contact">Contact</a></li>
+      <ul *ngIf="pagesList">
+        <li *ngFor="let page of pagesList | navbar"><a routerLink="/page/{{page.route}}">{{page.displayName}}</a></li>
         <li *ngIf="auth.loggedIn"><a (click)="logout()">Logout</a></li>
         <li *ngIf="!auth.loggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="auth.isAdmin"><a routerLink="/admin">Admin Panel</a></li>
