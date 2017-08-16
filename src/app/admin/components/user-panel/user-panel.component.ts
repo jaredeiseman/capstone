@@ -19,6 +19,7 @@ export class UserPanelComponent implements OnInit {
   ngOnInit() {
     this.svc.getUsers().subscribe(res => {
       this.users = res.json();
+      console.log(this.users);
     })
   }
 

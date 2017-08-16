@@ -16,7 +16,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   createUser(form: NgForm) {
-    var newUser = new User(form.value.username, form.value.password, form.value.admin, form.value.firstName, form.value.lastName);
+    var newUser = new User(form.value.username, form.value.password, form.value.admin, form.value.firstName, form.value.lastName, form.value.email);
     this.auth.createUser(newUser).subscribe(res => {
       console.log(res);
     });

@@ -2,6 +2,8 @@
 <form #createUserForm="ngForm" (ngSubmit)="createUser(createUserForm); false">
   <label for="username">Username</label>
   <input type="text" name="username" ngModel>
+  <label for="email">Email</label>
+  <input type="text" name="email" ngModel>
   <label for="firstName">First Name</label>
   <input type="text" name="firstName" ngModel>
   <label for="lastName">Last Name</label>

@@ -22,6 +22,9 @@
     <form #editUserForm="ngForm" (ngSubmit)="finishedEditing(editUserForm); false">
       <label for="username">Username</label>
       <input type="text" name="username" [(ngModel)]="userBeingEdited.username">
+      
+      <label for="email">Email</label>
+      <input type="text" name="email" [(ngModel)]="userBeingEdited.email">
 
       <label for="password">New Password</label>
       <input type="password" name="password" ngModel>

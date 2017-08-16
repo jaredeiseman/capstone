@@ -36,7 +36,8 @@ var userSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
   password: String,
-  isAdmin: Boolean
+  isAdmin: Boolean,
+  email: String
 });
 
 var User = mongoose.model('User', userSchema);
@@ -173,7 +174,8 @@ router.post('/createuser', (req, res) => {
       password: hash,
       isAdmin: req.body.isAdmin,
       firstName: req.body.firstName,
-      lastName: req.body.lastName
+      lastName: req.body.lastName,
+      email: req.body.email
     }).save((err) => {
       if (err) { res.send(err); return; }
       res.status(200);
