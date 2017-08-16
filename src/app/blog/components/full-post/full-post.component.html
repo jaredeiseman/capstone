@@ -3,5 +3,24 @@
   <h4>{{post.created}}</h4>
   <h5>{{post.category}}</h5>
   <div [innerHTML]="post.contents"></div>
-  <p *ngFor="let tag of post.tags">{{tag}}</p>  
+  <p *ngFor="let tag of post.tags">{{tag}}</p>
+  <div *ngIf="post.comments">
+    <h3>Comments</h3>
+    <div class="comment" *ngFor="let comment of post.comments">
+      <p>{{comment.comment}}</p>
+      <p>{{comment.author}}</p>
+      <p>{{comment.timestamp}}</p>
+    </div>
+  </div>
+  <button type="button" name="button" (click)="startCommenting(post)">Comment</button>
+
+  <div *ngIf="commenting">
+    <form #addCommentForm="ngForm" (ngSubmit)="stopCommenting(addCommentForm); false;">
+      <label for="comment">Comment</label>
+      <input type="text" name="comment" ngModel>
+      <label for="author">Author</label>
+      <input type="text" name="author" ngModel>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </div>

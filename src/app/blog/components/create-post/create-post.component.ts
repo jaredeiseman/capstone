@@ -32,7 +32,7 @@ export class CreatePostComponent implements OnInit {
   createPost(form) {
     var tags = form.value.tags.replace(' ', '').split(',');
     var content = $('div#editor').froalaEditor('html.get');
-    var newPost = new Post(form.value.title, form.value.category, tags, content, (form.value.draft == 'true'), this.auth.userFullName);
+    var newPost = new Post(form.value.title, form.value.category, tags, content, (form.value.draft == 'true'), this.auth.userFullName, []);
     console.log(newPost);
     this.db.saveNewPost(newPost).subscribe(res => {
       if (res.status === 200) this.router.navigate(['/blog']);

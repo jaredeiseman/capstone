@@ -23,7 +23,8 @@ var postSchema = mongoose.Schema({
   contents: String,
   tags: Array,
   draft: Boolean,
-  author: String
+  author: String,
+  comments: Array
 })
 
 var Post = mongoose.model('Post', postSchema);
@@ -266,6 +267,17 @@ router.get('/delete/:id', (req, res) => {
   Post.find({_id: req.params.id}).remove(() => {
     res.status(200);
     res.send('done');
+  });
+});
+
+router.post('/addcomment', (req,res) => {
+  Post.findById({_id: req.body.id}, (err, post) => {
+    post.comments.push(req.body.comment);
+    console.log(post);
+    Post.update({_id: req.body.id}, post, (err, data) => {
+      if (err) { res.send(err); }
+      res.send('done');
+    });
   });
 });
 

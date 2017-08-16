@@ -34,4 +34,9 @@ export class DatabaseService {
     return this.http.get(`${this.baseURI}/delete/${post._id}`);
   }
 
+  addComment(comment, id) {
+    var payload = { comment: comment, id: id };
+    return this.http.post(`${this.baseURI}/addcomment`, payload);
+  }
+
 }
