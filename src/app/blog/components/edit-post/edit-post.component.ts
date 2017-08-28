@@ -54,7 +54,7 @@ export class EditPostComponent implements OnInit, AfterViewChecked {
     tags.forEach((tag) => {
       mutatedTags.push(tag.replace(/^\s+|\s+$/gm,''));
     });
-    var updatedPost = new Post(form.value.title, form.value.category, mutatedTags, content, draft, this.auth.userFullName);
+    var updatedPost = new Post(form.value.title, form.value.category, mutatedTags, content, draft, this.auth.userFullName, []);
     this.db.updatePost(this.post._id, updatedPost).subscribe(res => {
       console.log(res);
     });
