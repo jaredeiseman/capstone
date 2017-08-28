@@ -1,0 +1,5 @@
+<form #masterConfigForm="ngForm" (ngSubmit)="handleForm(masterConfigForm); false">
+  <label for="siteTitle">Site Title</label>
+  <input type="text" name="siteTitle" ngModel>
+  <button type="submit">Update</button>
+</form>

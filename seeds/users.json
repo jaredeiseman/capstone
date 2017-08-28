@@ -1,0 +1,16 @@
+{
+  "username" : "admin",
+  "password" : "$2a$10$boGpR1pOoCSUccuQyeevCuJHsBXEV.d3F8sziQzpcOYtW0oZ3oFS.",
+  "isAdmin" : true,
+  "firstName" : "admin",
+  "lastName" : "admin",
+  "email" : "admin@admin.com"
+}
+{
+  "username" : "notadmin",
+  "password" : "$2a$10$N1OjGlC7Psq096dBZ2Tr0OBAqHloK/.UWrrT0.Ugfz2lRfyvCmv9y",
+  "isAdmin" : false,
+  "firstName" : "notadmin",
+  "lastName" : "notadmin",
+  "email" : "notadmin@notadmin.com"
+}

@@ -12,6 +12,7 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
 import { PostPanelComponent } from './components/post-panel/post-panel.component';
 import { PagePanelComponent } from './components/page-panel/page-panel.component';
 import { CreatePageFormComponent } from './components/create-page-form/create-page-form.component';
+import { MasterConfigComponent } from './components/master-config/master-config.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { CreatePageFormComponent } from './components/create-page-form/create-pa
     HttpModule,
     FormsModule
   ],
-  declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent, PostPanelComponent, PagePanelComponent, CreatePageFormComponent],
+  declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent, PostPanelComponent, PagePanelComponent, CreatePageFormComponent, MasterConfigComponent],
   exports: [AdminNavComponent],
   providers: [AdminService]
 })

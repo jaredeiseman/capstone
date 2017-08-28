@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './authentication/services/auth.service';
 import { AdminService } from './admin/services/admin.service';
 import { NavbarPipe } from './pipes/navbar.pipe';
+import { ConfigService } from './services/config.service';
 declare var jquery:any;
 declare var $ :any;
 
@@ -12,10 +13,11 @@ declare var $ :any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewChecked, OnInit {
-  title = 'JaredEiseman.com';
+  title:string = '';
   pagesList: any = null;
+  masterConfig: any = null;
 
-  constructor(public auth: AuthService, private router: Router, private admin: AdminService) {}
+  constructor(public auth: AuthService, private router: Router, private admin: AdminService, private configService: ConfigService) {}
 
   ngAfterViewChecked() {
 
@@ -27,6 +29,12 @@ export class AppComponent implements AfterViewChecked, OnInit {
       this.pagesList = res.json();
       console.log(this.pagesList);
     });
+
+    this.configService.getConfig().subscribe(res => {
+      this.masterConfig = res.json()[0];
+      this.title = this.masterConfig.siteTitle;
+    });
+
   }
 
   logout() {

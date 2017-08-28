@@ -15,6 +15,7 @@ import { routing } from './app.routing'
 
 import { AppComponent } from './app.component';
 import { NavbarPipe } from './pipes/navbar.pipe';
+import { ConfigService } from './services/config.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { NavbarPipe } from './pipes/navbar.pipe';
     RouterModule,
     routing
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

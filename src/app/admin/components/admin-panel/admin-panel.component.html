@@ -1,8 +1,10 @@
 <div class="tabs">
+  <span (click)="switchPanel('master')" [class]="determineActivePanel('master')">Master</span>
   <span (click)="switchPanel('users')" [class]="determineActivePanel('users')">Users</span>
   <span (click)="switchPanel('posts')" [class]="determineActivePanel('posts')">Posts</span>
   <span (click)="switchPanel('pages')" [class]="determineActivePanel('pages')">Pages</span>
 </div>
+<app-master-config *ngIf="activePanel === 'master'"></app-master-config>
 <app-user-panel *ngIf="activePanel === 'users'"></app-user-panel>
 <app-post-panel *ngIf="activePanel === 'posts'"></app-post-panel>
 <app-page-panel *ngIf="activePanel === 'pages'"></app-page-panel>
