@@ -1,3 +1,6 @@
-<p>
-  styles-global works!
-</p>
+<h2>Global Styles</h2>
+
+<form #globalStylesForm="ngForm" (ngSubmit)="handleFormSubmit(globalStylesForm); false">
+  <textarea name="globalStyles" [(ngModel)]="globalStyles"></textarea>
+  <button type="submit">Submit</button>
+</form>

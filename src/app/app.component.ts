@@ -16,11 +16,16 @@ export class AppComponent implements AfterViewChecked, OnInit {
   title:string = '';
   pagesList: any = null;
   masterConfig: any = null;
+  globalStyles: string = null;
+  stylesPopulated: boolean = false;
 
   constructor(public auth: AuthService, private router: Router, private admin: AdminService, private configService: ConfigService) {}
 
   ngAfterViewChecked() {
-
+    if (!this.stylesPopulated && this.globalStyles !== null) {
+      this.stylesPopulated = true;
+      $('#global-styles').html(this.globalStyles);
+    }
   }
 
   ngOnInit() {
@@ -33,6 +38,7 @@ export class AppComponent implements AfterViewChecked, OnInit {
     this.configService.getConfig().subscribe(res => {
       this.masterConfig = res.json()[0];
       this.title = this.masterConfig.siteTitle;
+      this.globalStyles = this.masterConfig.globalStyles;
     });
 
   }

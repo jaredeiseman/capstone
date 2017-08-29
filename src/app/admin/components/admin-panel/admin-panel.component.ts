@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
-  activePanel: string = 'master';
+  activePanel: string = 'styles';
 
   constructor() { }
 

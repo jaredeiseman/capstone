@@ -60,7 +60,8 @@ var pagesSchema = mongoose.Schema({
 var Pages = mongoose.model('Pages', pagesSchema);
 
 var masterConfigSchema = mongoose.Schema({
-  siteTitle: String
+  siteTitle: String,
+  globalStyles: String
 }, { collection: 'masterconfig'});
 
 var MasterConfig = mongoose.model('masterconfig', masterConfigSchema);
@@ -80,6 +81,17 @@ router.post('/masterconfig', (req,res) => {
       res.send('success');
     });
   })
+});
+
+router.post('/updateglobalstyles', (req, res) => {
+  MasterConfig.find({}, (err, config) => {
+    if (err) { res.send(err); }
+    MasterConfig.update({_id: config[0]._id}, req.body, (err, data) => {
+      if (err) { res.send(err); }
+      console.log(data);
+      res.send('success');
+    });
+  });
 });
 
 router.post('/deletepage', (req, res) => {

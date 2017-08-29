@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StylesPanelComponent implements OnInit {
 
-  activePanel: string = 'vars';
+  activePanel: string = 'global';
 
   constructor() { }
 
