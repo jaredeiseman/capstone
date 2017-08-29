@@ -13,6 +13,10 @@ import { PostPanelComponent } from './components/post-panel/post-panel.component
 import { PagePanelComponent } from './components/page-panel/page-panel.component';
 import { CreatePageFormComponent } from './components/create-page-form/create-page-form.component';
 import { MasterConfigComponent } from './components/master-config/master-config.component';
+import { StylesPanelComponent } from './components/styles-panel/styles-panel.component';
+import { StylesVarsComponent } from './components/styles-vars/styles-vars.component';
+import { StylesGlobalComponent } from './components/styles-global/styles-global.component';
+import { StylesPageSpecificComponent } from './components/styles-page-specific/styles-page-specific.component';
 
 @NgModule({
   imports: [
@@ -21,7 +25,7 @@ import { MasterConfigComponent } from './components/master-config/master-config.
     HttpModule,
     FormsModule
   ],
-  declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent, PostPanelComponent, PagePanelComponent, CreatePageFormComponent, MasterConfigComponent],
+  declarations: [AdminNavComponent, AdminPanelComponent, UserPanelComponent, PostPanelComponent, PagePanelComponent, CreatePageFormComponent, MasterConfigComponent, StylesPanelComponent, StylesVarsComponent, StylesGlobalComponent, StylesPageSpecificComponent],
   exports: [AdminNavComponent],
   providers: [AdminService]
 })
