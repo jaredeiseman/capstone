@@ -27,7 +27,6 @@ export class FullPostComponent implements OnInit {
 
     this.db.getPost(this.postId).subscribe(res => {
       this.post = res.json();
-      console.log(this.post);
     });
   }
 
@@ -38,9 +37,16 @@ export class FullPostComponent implements OnInit {
   stopCommenting(form: NgForm) {
     var newComment = new Comment(this.auth.userFirstName, form.value.comment);
     this.db.addComment(newComment, this.post._id).subscribe(res => {
-      console.log(res);
       this.commenting = false;
     });
+  }
+
+  formatDate(dateString) {
+    var d = new Date(dateString);
+    var days: string[] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    return `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDay() + 1}, ${d.getFullYear()}`;
   }
 
 }
