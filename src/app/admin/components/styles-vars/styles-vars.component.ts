@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class StylesVarsComponent implements OnInit {
   vars: any = null;
-  inputs: any = [['hi', 'hi']];
+  inputs: any = [['', '']];
   masterConfig = null;
 
   constructor(private configService: ConfigService) { }

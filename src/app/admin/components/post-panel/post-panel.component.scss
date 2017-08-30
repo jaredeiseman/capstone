@@ -1,0 +1,18 @@
+.createpost {
+  float: right;
+  margin-top: 15px;
+  color: white;
+  background: black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .3s;
+  border: 1px solid transparent;
+  padding: 15px 10px;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+    background: white;
+    border: 1px solid black;
+  }
+}

@@ -16,13 +16,14 @@
         </tr>
       </tbody>
     </table>
+    <a routerLink="/createuser" class="adduser">Add User</a>
   </div>
 
   <div class="edit-user-container" *ngIf="editing">
     <form #editUserForm="ngForm" (ngSubmit)="finishedEditing(editUserForm); false">
       <label for="username">Username</label>
       <input type="text" name="username" [(ngModel)]="userBeingEdited.username">
-      
+
       <label for="email">Email</label>
       <input type="text" name="email" [(ngModel)]="userBeingEdited.email">
 
