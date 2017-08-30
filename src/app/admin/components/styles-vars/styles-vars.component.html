@@ -1,3 +1,10 @@
-<p>
-  styles-vars works!
-</p>
+<h2>Variables</h2>
+<form *ngIf="vars" #variables="ngForm" (ngSubmit)="updateVariables(variables); false">
+  <div *ngFor="let input of inputs; let i = index">
+    <input type="text" name="key{{i}}" [(ngModel)]="input[0]">
+    <input type="text" name="val{{i}}" [(ngModel)]="input[1]">
+    <button (click)="removeInput(i)">X</button>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<button (click)="addInput()">Add input</button>

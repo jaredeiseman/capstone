@@ -1,4 +1,7 @@
 {
   "siteTitle": "First Launch",
-  "globalStyles": "initial style"
+  "globalStyles": "initial style",
+  "styleVars": {
+    "$base-color": "#000"
+  }
 }

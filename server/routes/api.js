@@ -61,7 +61,8 @@ var Pages = mongoose.model('Pages', pagesSchema);
 
 var masterConfigSchema = mongoose.Schema({
   siteTitle: String,
-  globalStyles: String
+  globalStyles: String,
+  styleVars: Object
 }, { collection: 'masterconfig'});
 
 var MasterConfig = mongoose.model('masterconfig', masterConfigSchema);
