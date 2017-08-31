@@ -4,8 +4,8 @@ import { Http } from '@angular/http';
 @Injectable()
 export class AdminService {
 
-  baseURI: string = '';
-  // baseURI: string = 'http://localhost:3000';
+  // baseURI: string = '';
+  baseURI: string = 'http://localhost:3000';
 
   constructor(private http: Http) { }
 

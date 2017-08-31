@@ -4,8 +4,8 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class AuthService {
-  baseURI: string = '/api';
-  // baseURI: string = 'http://localhost:3000/api';
+  // baseURI: string = '/api';
+  baseURI: string = 'http://localhost:3000/api';
   loggedIn: boolean = false;
   username: string = null;
   isAdmin: boolean = false;
