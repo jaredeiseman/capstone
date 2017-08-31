@@ -42,6 +42,7 @@ export class StylesVarsComponent implements OnInit {
     newConfig.styleVars = styleVars;
     this.configService.updateConfig(newConfig).subscribe(res => {
       console.log(res);
+      window.location.reload();
     });
   }
 

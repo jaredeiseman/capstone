@@ -39,6 +39,12 @@ export class AppComponent implements AfterViewChecked, OnInit {
       this.masterConfig = res.json()[0];
       this.title = this.masterConfig.siteTitle;
       this.globalStyles = this.masterConfig.globalStyles;
+
+      for (var key in this.masterConfig.styleVars) {
+        var rx = new RegExp(key, 'g');
+        this.globalStyles = this.globalStyles.replace(rx, this.masterConfig.styleVars[key]);
+        console.log(rx);
+      }
     });
 
   }
