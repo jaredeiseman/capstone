@@ -32,7 +32,6 @@ export class AppComponent implements AfterViewChecked, OnInit {
     this.auth.setLoginOnInit();
     this.admin.getPages().subscribe(res => {
       this.pagesList = res.json();
-      console.log(this.pagesList);
     });
 
     this.configService.getConfig().subscribe(res => {
@@ -43,7 +42,6 @@ export class AppComponent implements AfterViewChecked, OnInit {
       for (var key in this.masterConfig.styleVars) {
         var rx = new RegExp(key, 'g');
         this.globalStyles = this.globalStyles.replace(rx, this.masterConfig.styleVars[key]);
-        console.log(rx);
       }
     });
 
