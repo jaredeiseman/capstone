@@ -6,7 +6,7 @@
     <h3>Comments</h3>
     <div class="comment" *ngFor="let comment of post.comments">
       <p>{{comment.contents}}</p>
-      <p>{{formatDate(comment.timestamp)}}</p>
+      <p>By: {{comment.author}} - {{formatDate(comment.timestamp)}}</p>
     </div>
   </div>
   <button type="button" name="button" (click)="startCommenting(post)">Comment</button>

@@ -13,7 +13,7 @@ import { AuthService } from '../../../authentication/services/auth.service';
 export class ListPostsComponent implements OnInit {
 
   posts: any[] = null;
-  drafts: any[] = null;
+  postExcerpts: string[] = null;
 
   constructor(private http: Http, private db: DatabaseService, private router: Router, private auth: AuthService) { }
 
@@ -24,9 +24,11 @@ export class ListPostsComponent implements OnInit {
   retrievePosts() {
     this.db.getAllPosts().subscribe(res => {
       this.posts = JSON.parse(res['_body']);
-    });
-    this.db.getAllDrafts().subscribe(res => {
-      this.drafts = JSON.parse(res['_body']);
+      this.posts.forEach((post) => {
+        var excerpt = post.contents.slice(0, 50);
+        excerpt = excerpt + '...';
+        post.excerpt = excerpt;
+      });
     });
   }
 
@@ -34,16 +36,12 @@ export class ListPostsComponent implements OnInit {
     this.router.navigate(['/blog/post/', post._id]);
   }
 
-  edit(post) {
-    this.router.navigate(['/blog/edit/', post._id]);
-  }
+  formatDate(dateString) {
+    var d = new Date(dateString);
+    var days: string[] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  delete(post) {
-    if (confirm('Are you sure you want to delete this post?')) {
-      this.db.delete(post).subscribe(res => {
-        if (res.status === 200) { this.retrievePosts() }
-      });
-    }
+    return `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDay() + 1}, ${d.getFullYear()}`;
   }
 
 }

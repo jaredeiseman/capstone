@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { PagesService } from '../../services/pages.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 declare var jquery: any;
 declare var $: any;
 
@@ -16,7 +17,7 @@ export class EditPageComponent implements OnInit {
   page = null;
   populated: boolean = false;
 
-  constructor(private route: ActivatedRoute, private location: Location, private svc: PagesService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private svc: PagesService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -50,6 +51,7 @@ export class EditPageComponent implements OnInit {
 
     this.svc.updatePage(toUpdate).subscribe(res => {
       console.log(res);
+      this.router.navigate(['/page', toUpdate.route]);
     });
   }
 

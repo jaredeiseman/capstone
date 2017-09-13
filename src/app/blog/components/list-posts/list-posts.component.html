@@ -1,6 +1,7 @@
 <div *ngIf="posts">
   <h2>Published Posts</h2>
-  <div *ngFor="let post of posts">
-    <a (click)="getFullPost(post)">{{post.title}}</a>
+  <div *ngFor="let post of posts" class="post">
+    <a (click)="getFullPost(post)"><h2>{{post.title}}</h2></a>
+    <p>{{formatDate(post.created)}}</p>
   </div>
 </div>

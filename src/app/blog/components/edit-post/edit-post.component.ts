@@ -6,6 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Post } from '../../models/post.model';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 declare var jquery: any;
 declare var $: any;
 
@@ -22,7 +23,7 @@ export class EditPostComponent implements OnInit, AfterViewChecked {
   populated = false;
   tags: string = null;
 
-  constructor(private db: DatabaseService, private route: ActivatedRoute, private location: Location, private auth: AuthService) { }
+  constructor(private db: DatabaseService, private route: ActivatedRoute, private location: Location, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -57,6 +58,7 @@ export class EditPostComponent implements OnInit, AfterViewChecked {
     var updatedPost = new Post(form.value.title, form.value.category, mutatedTags, content, draft, this.auth.userFullName, []);
     this.db.updatePost(this.post._id, updatedPost).subscribe(res => {
       console.log(res);
+      this.router.navigate(['/blog/post', this.post._id]);
     });
   }
 

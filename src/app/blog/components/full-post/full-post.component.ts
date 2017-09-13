@@ -25,6 +25,10 @@ export class FullPostComponent implements OnInit {
       this.postId = urlParameters['id'];
     });
 
+    this.collectInfo();
+  }
+
+  collectInfo() {
     this.db.getPost(this.postId).subscribe(res => {
       this.post = res.json();
     });
@@ -38,6 +42,7 @@ export class FullPostComponent implements OnInit {
     var newComment = new Comment(this.auth.userFirstName, form.value.comment);
     this.db.addComment(newComment, this.post._id).subscribe(res => {
       this.commenting = false;
+      this.collectInfo();
     });
   }
 

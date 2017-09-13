@@ -22,10 +22,10 @@ export class StylesGlobalComponent implements OnInit, AfterViewChecked {
       this.globalStyles = res.json()[0].globalStyles;
       this.vars = res.json()[0].styleVars;
 
-      for (var key in this.vars) {
-        var rx = new RegExp(this.vars[key], 'g');
-        this.globalStyles = this.globalStyles.replace(rx, key);
-      }
+      // for (var key in this.vars) {
+      //   var rx = new RegExp(this.vars[key], 'g');
+      //   this.globalStyles = this.globalStyles.replace(rx, key);
+      // }
     });
   }
 
@@ -36,10 +36,10 @@ export class StylesGlobalComponent implements OnInit, AfterViewChecked {
     var styles = form.value.globalStyles;
     var parsedStyles = '';
 
-    for (var key in this.vars) {
-      var rx = new RegExp(key, 'g');
-      styles = styles.replace(rx, this.vars[key]);
-    }
+    // for (var key in this.vars) {
+    //   var rx = new RegExp(key, 'g');
+    //   styles = styles.replace(rx, this.vars[key]);
+    // }
 
     this.configService.updateGlobalStyles({globalStyles: styles}).subscribe(res => {
       window.location.reload();
