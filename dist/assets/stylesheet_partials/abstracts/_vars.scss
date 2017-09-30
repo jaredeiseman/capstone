@@ -1,0 +1,34 @@
+//Typography vars
+//font stacks
+$default-font-stack: Helvetica, sans-serif;
+$heading-font-stack: 'Georgia', serif;
+
+//Font sizes
+$bfs: 1em;
+$bfs-h1: 3rem;
+$bfs-h2: 2.25rem;
+$bfs-h3: 1.5rem;
+$bfs-h4: 1.25rem;
+$bfs-h5: 1.125rem;
+$bfs-h6: .875rem;
+
+//Other font vars
+$lead-font-size: 1.125em;
+$lead-letter-spacing: 1px;
+$lead-alignment: justify;
+
+$default-letter-spacing: .5px;
+$heading-letter-spacing: 0;
+
+$p-line-height: 30px;
+
+//color palette vars
+$primary-color: #000;
+$contrast-color: #f00;
+$dark-grey: #666;
+$light-grey: #ccc;
+$white: #fff;
+$black: #000;
+
+//layout vars
+$vertical-rhythm: 30px;
