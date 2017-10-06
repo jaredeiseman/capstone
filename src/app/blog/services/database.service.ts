@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class DatabaseService {
 
-  // baseURI: string = 'http://localhost:3000/api';
-  baseURI: string = '/api';
+  baseURI: string = environment.baseURI;
 
   constructor(private http: Http) { }
 

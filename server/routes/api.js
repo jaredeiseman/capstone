@@ -6,7 +6,6 @@ const saltRounds = 10;
 //Setup database connections
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://admin:admin@ds151232.mlab.com:51232/heroku_gg5mtvpn');
-// mongoose.connect('mongodb://localhost/');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

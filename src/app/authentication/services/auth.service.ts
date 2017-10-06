@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { Http } from '@angular/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AuthService {
-  baseURI: string = '/api';
-  // baseURI: string = 'http://localhost:3000/api';
+  baseURI: string = environment.baseURI;
   loggedIn: boolean = false;
   username: string = null;
   isAdmin: boolean = false;

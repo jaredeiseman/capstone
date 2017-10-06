@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PagesService {
 
-  baseURI: string = '/api';
-  // baseURI: string = 'http://localhost:3000/api';
+  baseURI: string = environment.baseURI;
 
   constructor(private http: Http) { }
 
