@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { PagesService } from '../../services/pages.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-custom-page',
@@ -17,7 +17,9 @@ export class CustomPageComponent implements OnInit, AfterViewChecked {
 
   constructor(private route: ActivatedRoute, private location: Location, private svc: PagesService, private router: Router) {
     router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
         this.populateInfo();
+      }
     });
   }
 
