@@ -17,6 +17,7 @@
       </tbody>
     </table>
   </div>
+  <button (click)="toggleForm()" class="mb">Create New Page</button>
 </section>
 
-<app-create-page-form></app-create-page-form>
+<app-create-page-form *ngIf="displayForm"></app-create-page-form>

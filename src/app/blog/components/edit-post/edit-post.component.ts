@@ -23,6 +23,10 @@ export class EditPostComponent implements OnInit, AfterViewChecked {
   populated = false;
   tags: string = null;
 
+  froalaOptions: Object = {
+    height: 600
+  }
+
   constructor(private db: DatabaseService, private route: ActivatedRoute, private location: Location, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {

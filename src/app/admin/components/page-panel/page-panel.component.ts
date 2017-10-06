@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PagePanelComponent implements OnInit {
   pages: any;
+  displayForm: boolean = false;
 
   constructor(private svc: AdminService, private router: Router) { }
 
@@ -32,6 +33,10 @@ export class PagePanelComponent implements OnInit {
         if (res.status === 200) { this.getPages(); }
       })
     }
+  }
+
+  toggleForm() {
+    this.displayForm = !this.displayForm;
   }
 
 }

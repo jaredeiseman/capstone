@@ -17,6 +17,10 @@ export class EditPageComponent implements OnInit {
   page = null;
   populated: boolean = false;
 
+  froalaOptions: Object = {
+    height: 600
+  }
+
   constructor(private route: ActivatedRoute, private location: Location, private svc: PagesService, private router: Router) { }
 
   ngOnInit() {

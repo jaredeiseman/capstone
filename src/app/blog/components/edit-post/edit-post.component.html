@@ -6,10 +6,12 @@
     <input type="text" name="category" [(ngModel)]="post.category">
     <label for="tags">Tags</label>
     <input type="text" name="tags" id="tags">
-    <div [froalaEditor]="froalaOptions" id="editor"></div>
     <label>Save as draft?</label>
-    <label for="draft"><input type="radio" name="draft" value="true" id="draft-true">Yes</label>
-    <label for="draft"><input type="radio" name="draft" value="false" id="draft-false">No</label>
-    <input type="submit">
+    <div class="form-group">
+      <label for="draft"><input type="radio" name="draft" value="true" id="draft-true">Yes</label>
+      <label for="draft"><input type="radio" name="draft" value="false" id="draft-false">No</label>
+    </div>
+    <div [froalaEditor]="froalaOptions" id="editor"></div>
+    <button type="submit">Submit</button>
   </form>
 </div>

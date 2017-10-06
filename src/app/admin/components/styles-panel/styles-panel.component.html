@@ -1,8 +1,8 @@
 <div class="tabs">
   <span (click)="switchPanel('vars')" [class]="determineActivePanel('vars')">Vars</span>
   <span (click)="switchPanel('global')" [class]="determineActivePanel('global')">Global</span>
-  <span (click)="switchPanel('pages')" [class]="determineActivePanel('pages')">Individual Pages</span>
+  <!-- <span (click)="switchPanel('pages')" [class]="determineActivePanel('pages')">Individual Pages</span> -->
 </div>
 <app-styles-vars *ngIf="activePanel === 'vars'"></app-styles-vars>
 <app-styles-global *ngIf="activePanel === 'global'"></app-styles-global>
-<app-styles-page-specific *ngIf="activePanel === 'pages'"></app-styles-page-specific>
+<!-- <app-styles-page-specific *ngIf="activePanel === 'pages'"></app-styles-page-specific> -->

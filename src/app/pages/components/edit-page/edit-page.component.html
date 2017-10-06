@@ -4,7 +4,6 @@
     <input type="text" name="title" [(ngModel)]="page.title">
     <label for="route">Route</label>
     <input type="text" name="route" [(ngModel)]="page.route">
-    <div [froalaEditor]="froalaOptions" id="editor"></div>
     <label for="displayName">Display Name for Navbar</label>
     <input type="text" name="displayName" [(ngModel)]="page.displayName">
     <label for="displayInNav">Display in Navbar?</label>
@@ -12,6 +11,7 @@
       <option value="true">Yes</option>
       <option value="false">No</option>
     </select>
+    <div [froalaEditor]="froalaOptions" id="editor"></div>
     <button type="submit" name="button">Submit</button>
   </form>
 </div>
